@@ -1,4 +1,5 @@
 import ScreenMatch.Modelos.Filme;
+import ScreenMatch.calculos.FiltroRecomendacao;
 
 public class Main {
     public static void main(String[] args) {
@@ -13,6 +14,7 @@ public class Main {
         meuFilme.avalia(10);
         System.out.println("Total de avaliações: " + meuFilme.getTotalDeAvaliacoes());
         System.out.println(meuFilme.pegaMedia());
+        
 
     }
 }
