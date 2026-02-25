@@ -1,6 +1,7 @@
 package DesafioArray.Main;
 
 import DesafioArray.Modelos.CartaoCredito;
+import DesafioArray.Modelos.Compras;
 
 import java.util.Scanner;
 
@@ -19,7 +20,8 @@ public class Main {
             String descricao = sc.nextLine();
             System.out.println("Digite o valor da compra:");
             double valor = sc.nextDouble();
-            c.saldo(descricao,valor);
+            Compras compra = new Compras(descricao,valor);
+            c.saldo(compra);
 
 
             System.out.println("""

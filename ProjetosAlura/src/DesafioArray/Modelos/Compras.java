@@ -22,4 +22,12 @@ public class Compras implements Comparable<Compras>{
         return Double.compare(this.valor,outraCompra.valor);
 
     }
+
+    @Override
+    public String toString() {
+        return "Compras = " +
+                "descricao = '" + descricao + '\'' +
+                ", valor = " + valor +
+                '}';
+    }
 }

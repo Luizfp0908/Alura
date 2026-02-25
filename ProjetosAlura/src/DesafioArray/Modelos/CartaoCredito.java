@@ -2,12 +2,13 @@ package DesafioArray.Modelos;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 
 public class CartaoCredito {
     private int limite;
     private double valor;
     private String descricao;
-    private ArrayList<String> lista = new ArrayList<>();
+    private ArrayList<Compras> lista = new ArrayList<>();
 
     public CartaoCredito(int limite, String descricao) {
         this.limite = limite;
@@ -36,7 +37,7 @@ public class CartaoCredito {
         Collections.sort(this.lista);
         System.out.println("***********************");
         System.out.println("COMPRAS REALIZADAS:");
-        for (String l : lista) {
+        for (Compras l : lista) {
             System.out.println(l);
         }
         System.out.println("***********************");
@@ -44,10 +45,10 @@ public class CartaoCredito {
     }
 
 
-    public void saldo(String descricao,double amount) {
-        if (this.valor >= amount) {
-            this.valor -= amount;
-            this.lista.add(descricao + " - R$ " + amount);
+    public void saldo(Compras c) {
+        if (this.valor >= c.getValor()) {
+            this.valor -= c.getValor();
+            this.lista.add(c);
 
         } else {
             System.out.println("""
@@ -55,7 +56,7 @@ public class CartaoCredito {
                     *******************
                     COMPRAS REALIZADAS
                     """);
-            for (String l : lista) {
+            for (Compras l : lista) {
                 System.out.println(l);
             }
 
