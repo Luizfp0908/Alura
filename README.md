@@ -1,32 +1,53 @@
-# ☕ Meus Primeiros Passos com Java (Alura)
+# 🚀 De Lógica a Arquitetura de APIs
 
-Este repositório reúne os exercícios e desafios que desenvolvi durante os primeiros módulos da formação Java na Alura. O foco aqui foi aprender a base da linguagem e a lógica de programação orientada a objetos.
+Este repositório contém a evolução dos meus estudos em Java, abrangendo desde a lógica essencial até a implementação de padrões de projeto voltados para o consumo de APIs REST.
 
 ---
 
-## 📂 Projetos no Repositório
+## 📂 Projetos em Destaque
 
-### 💳 1. Cartão de Crédito
-Um programa simples via console para gerenciar compras.
-* **O que faz:** Lê um limite, recebe compras (descrição e valor) e para quando o saldo acaba ou o usuário decide sair.
-* **Destaque:** Uso de `ArrayList` para o histórico e `Collections.sort` para ordenar o extrato final.
+### 🌐 3. Multi-API Consumer (Novo!)
+Um framework modular para consulta de múltiplos serviços web via protocolo HTTP.
+* **O que faz:** Realiza buscas em tempo real no **Google Books**, **CoinGecko** (Cripto) e **TheMealDB** (Receitas).
+* **Destaques Técnicos:**
+    * **Abstração & Herança:** Classe mãe `Request` centraliza a lógica de conexão (`HttpClient`).
+    * **Polimorfismo:** Uso de referências genéricas para instanciar diferentes APIs em tempo de execução via `switch case`.
+    * **Resiliência:** Tratamento de exceções e manipulação de strings para URLs seguras.
+
+
 
 ### 🎬 2. ScreenMatch
-Primeira versão de um catálogo de filmes.
-* **O que faz:** Calcula médias de avaliações e organiza dados básicos de títulos de entretenimento.
-* **Destaque:** Uso de **Encapsulamento** (Getters e Setters) para proteger os dados das classes.
+Catálogo de títulos de entretenimento focado em OO.
+* **O que faz:** Gerencia filmes e séries, calculando médias e classificações.
+* **Destaques Técnicos:** **Encapsulamento** rigoroso e modelagem de classes para representar entidades do mundo real.
+
+### 💳 1. Gerenciador de Compras
+Aplicação de controle financeiro via console.
+* **O que faz:** Gerencia o limite de um cartão de crédito e ordena o extrato de compras.
+* **Destaques Técnicos:** Manipulação de coleções com `ArrayList` e algoritmos de ordenação com `Comparable`.
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
-* **Linguagem:** Java 17
-* **Ferramenta:** IntelliJ IDEA
-* **Conceitos:** Variáveis, Loops (`while`/`do-while`), Listas e Orientação a Objetos Básica.
+## 🛠️ Stack Tecnológica
 
-## 🚀 Como testar
-1. Clone o projeto.
-2. Abra a pasta `src` de qualquer um dos projetos no seu editor favorito.
-3. Execute a classe `Main.java` e siga as instruções no console.
+* **Linguagem:** Java 17/24 (OpenJDK)
+* **Bibliotecas:** `java.net.http` (HttpClient), `java.util` (Collections/List)
+* **Conceitos de Engenharia:**
+    * POO Avançada (Herança, Polimorfismo, Classes Abstratas)
+    * Consumo de APIs REST (JSON)
+    * Princípios DRY (*Don't Repeat Yourself*)
+
+
 
 ---
-**Luiz Francisco** *Estudante de Engenharia de Software - 5º Período*
+
+## 🚀 Como Executar
+
+1. Clone o repositório: `git clone https://github.com/seu-usuario/seu-repositorio.git`
+2. Importe o projeto no **IntelliJ IDEA**.
+3. Navegue até o pacote `APIS` e execute a classe `Main.java` para testar o novo buscador de APIs.
+
+---
+
+**Luiz Francisco**
+*Estudante de Engenharia de Software - 5º Período na Unicesumar*
