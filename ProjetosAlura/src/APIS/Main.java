@@ -1,15 +1,15 @@
 package APIS;
 
-import APIS.enderecos.CoinGecko;
-import APIS.enderecos.GoogleBooks;
-import APIS.enderecos.TheMealDB;
-import APIS.request.Request;
+
+import APIS.Excecao.ErroConsultaException;
+import APIS.Enderecos.*;
+import APIS.Request.Request;
 
 import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) throws IOException, InterruptedException {
+    public static void main(String[] args) throws IOException, InterruptedException, ErroConsultaException {
         int resposta = 0;
         Scanner sc = new Scanner(System.in);
 
@@ -21,13 +21,16 @@ public class Main {
                     1-GoogleBooks
                     2-CoinGecko
                     3-TheMealDB
-                    4-sair
+                    4-Github
+                    5-ViaCep
+                    6-sair
+                    
                     """);
 
             resposta = sc.nextInt();
             sc.nextLine();
 
-            if (resposta == 4) break;
+            if (resposta == 6) break;
 
 
             System.out.println("Digite o termo de busca:");
@@ -38,17 +41,51 @@ public class Main {
 
             switch (resposta) {
                 case 1:
+                    try {
                     r = new GoogleBooks(busca);
                     r.requesicao();
                     break;
+                    }catch (ErroConsultaException e){
+                        System.out.println(e);
+                    }
+
                 case 2:
-                    r = new CoinGecko(busca);
-                    r.requesicao();
-                    break;
+                    try {
+                        r = new CoinGecko(busca);
+                        r.requesicao();
+                        break;
+                    } catch (ErroConsultaException e){
+                        System.out.println(e);
+                    }
+
                 case 3:
-                    r = new TheMealDB(busca);
-                    r.requesicao();
-                    break;
+                    try {
+                        r = new TheMealDB(busca);
+                        r.requesicao();
+                        break;
+                    } catch (ErroConsultaException e) {
+                        System.out.println(e);
+                    }
+
+                case 4:
+                    try {
+                        r = new Github(busca);
+                        r.requesicao();
+                        break;
+
+                    } catch (ErroConsultaException e) {
+                        System.out.println(e);
+                    }
+
+                case 5:
+                    try {
+                        r = new ViaCep(busca);
+                        r.requesicao();
+                        break;
+                    } catch (ErroConsultaException | IllegalArgumentException e) {
+                        System.out.println(e);
+                    }
+
             }
 
         }

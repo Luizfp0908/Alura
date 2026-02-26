@@ -1,5 +1,7 @@
 package ScreenMatch.Modelos;
 
+import ScreenMatch.Excecao.ErroDeConversaoDeAnoExpection;
+
 public class Titulo implements Comparable<Titulo>{
     private String nome;
     private int anoDeLancamento;
@@ -11,6 +13,15 @@ public class Titulo implements Comparable<Titulo>{
     public Titulo(String nome, int anoDeLancamento) {
         this.nome = nome;
         this.anoDeLancamento = anoDeLancamento;
+    }
+
+    public Titulo(TituloOmdb meuTituloOmdb) {
+        this.nome = meuTituloOmdb.title();
+        if (meuTituloOmdb.year().length() > 4){
+            throw new ErroDeConversaoDeAnoExpection("Nao consegui converte o ano, porque tem mais de 4 caracteres");
+        }
+        this.anoDeLancamento = Integer.valueOf(meuTituloOmdb.year());
+        this.duracaoEmMinutos =Integer.valueOf(meuTituloOmdb.runtime().substring(0,3));
     }
 
     public String getNome() {
@@ -77,6 +88,11 @@ public class Titulo implements Comparable<Titulo>{
     }
 
 
-
-
+    @Override
+    public String toString() {
+        return  "anoDeLancamento=" + anoDeLancamento +
+                ", nome='" + nome + '\'' +
+                ", duracaoEmMinutos=" + duracaoEmMinutos +
+                '}';
+    }
 }

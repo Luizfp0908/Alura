@@ -1,4 +1,4 @@
-package APIS.request;
+package APIS.Request;
 
 import java.io.IOException;
 import java.net.URI;
