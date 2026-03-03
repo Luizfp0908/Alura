@@ -1,7 +1,7 @@
 package Apis;
 
 
-import Apis.Controller.Excecao.ErroConsultaException;
+import Apis.Excecao.ErroConsultaException;
 import Apis.View.View;
 
 import java.io.IOException;

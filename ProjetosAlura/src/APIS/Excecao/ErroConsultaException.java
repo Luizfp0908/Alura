@@ -1,4 +1,4 @@
-package Apis.Controller.Excecao;
+package Apis.Excecao;
 
 public class ErroConsultaException extends RuntimeException {
         private String name;

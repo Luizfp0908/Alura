@@ -1,86 +1,35 @@
 package Apis.View;
 
-import Apis.Controller.Enderecos.*;
-import Apis.Controller.Excecao.ErroConsultaException;
-import Apis.Controller.Request.Request;
-import Apis.Model.Model;
+import Apis.Controller.Controller;
 
 import java.io.IOException;
 import java.util.Scanner;
 
 public class View {
     public void exibirMenu() throws IOException, InterruptedException {
-        int resposta = 0;
+        Controller controller = new Controller();
+        int opcao = 0;
         Scanner sc = new Scanner(System.in);
-        Model model = new Model();
 
 
-        while (resposta != 4) {
-            model.exibirMenu();
+        while (opcao != 6) {
+            System.out.println("""
+                    \n--- SISTEMA MULTI-API (MVC) ---
+                    1-GoogleBooks | 2-CoinGecko | 3-TheMealDB
+                    4-Github      | 5-ViaCep    | 6-Sair
+                    Escolha:""");
 
-            resposta = sc.nextInt();
+            opcao = sc.nextInt();
             sc.nextLine();
 
-            if (resposta == 6) break;
+            if (opcao == 6) break;
 
-
-            System.out.println("Digite o termo de busca:");
+            System.out.print("Digite o termo de busca:");
             String busca = sc.nextLine();
 
-
-            Request r;
-
-            switch (resposta) {
-                case 1:
-                    try {
-                        r = new GoogleBooks(busca);
-                        r.requesicao();
-                        break;
-                    } catch (ErroConsultaException e) {
-                        System.out.println(e.getMessage());
-                    }
-
-                case 2:
-                    try {
-                        r = new CoinGecko(busca);
-                        r.requesicao();
-                        break;
-                    } catch (ErroConsultaException e) {
-                        System.out.println(e.getMessage());
-                    }
-
-                case 3:
-                    try {
-                        r = new TheMealDB(busca);
-                        r.requesicao();
-                        break;
-                    } catch (ErroConsultaException e) {
-                        System.out.println(e.getMessage());
-                    }
-
-                case 4:
-                    try {
-                        r = new Github(busca);
-                        r.requesicao();
-                        break;
-
-                    } catch (ErroConsultaException e) {
-                        System.out.println(e.getMessage());
-                    }
-
-                case 5:
-                    try {
-                        r = new ViaCep(busca);
-                        r.requesicao();
-                        break;
-                    } catch (ErroConsultaException | IllegalArgumentException e) {
-                        System.out.println(e.getMessage());
-                    }
-
-            }
-
+            controller.processarBusca(opcao, busca);
         }
-        model.sairMenu();
+        System.out.println("Sistema encerrado. Parabéns pelo certificado, Luiz! [cite: 8]");
     }
 }
 

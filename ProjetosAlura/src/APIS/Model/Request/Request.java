@@ -1,4 +1,4 @@
-package Apis.Controller.Request;
+package Apis.Model.Request;
 
 import java.io.IOException;
 import java.net.URI;
