@@ -1,12 +1,12 @@
-package APIS.Enderecos;
+package Apis.Controller.Enderecos;
 
-import APIS.Excecao.ErroConsultaException;
-import APIS.Request.Request;
+import Apis.Controller.Excecao.ErroConsultaException;
+import Apis.Controller.Request.Request;
 
 public class Github extends Request {
 
 
-    public Github(String busca) throws APIS.Excecao.ErroConsultaException {
+    public Github(String busca) throws Apis.Controller.Excecao.ErroConsultaException {
         this.setEndereco("https://api.github.com/users/");
         this.setBusca(busca);
 

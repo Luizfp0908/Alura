@@ -1,7 +1,7 @@
-package APIS.Enderecos;
+package Apis.Controller.Enderecos;
 
-import APIS.Excecao.ErroConsultaException;
-import APIS.Request.Request;
+import Apis.Controller.Excecao.ErroConsultaException;
+import Apis.Controller.Request.Request;
 
 public class GoogleBooks extends Request {
     public GoogleBooks(String busca) {
